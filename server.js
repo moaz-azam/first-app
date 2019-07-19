@@ -16,7 +16,7 @@ app.get("/campgrounds", function(req , res){
    {name: "sakardu", image:"https://pixabay.com/get/54e8d7464b5bab14f6da8c7dda793f7f1636dfe2564c704c732c7fdd9048c45d_340.jpg"},
    {name: "swat", image:"https://pixabay.com/get/54e8d7464b5bab14f6da8c7dda793f7f1636dfe2564c704c732c7fdd9048c45d_340.jpg"},
  ];
- res.render("campgrounds");
+ res.render("campgrounds",{campgrounds:campgrounds});
 });
 
 app.listen(process.env.PORT ,process.env.IP || 8080, () => console.log("yelpcamp server has sarted"));
