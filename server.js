@@ -1,12 +1,12 @@
 var express = require('express');
 var app = express();
 
-app.use(express.static("public"))
+app.use(express.static("public"));
 app.set("veiw engine", "ejs");
 
 
-app.get("/", function(req, res){
- res.render("home");
+app.get("/", function(req , res){
+  res.render("home");
 });
 
 app.get("/campgrounds", function(req , res){
@@ -18,9 +18,5 @@ app.get("/campgrounds", function(req , res){
  ];
  res.render("campgrounds");
 });
-
-//app.get('*' , function(req, res ){
- //res.send("you are a star");
-//});
 
 app.listen(process.env.PORT ,process.env.IP || 8080, () => console.log("yelpcamp server has sarted"));
