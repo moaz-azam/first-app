@@ -8,4 +8,4 @@ app.get("/dog", function(req, res){
 });
 
 
-app.listen(process.env.PORT || 8080, () => console.log("all is ok"))
+app.listen(process.env.PORT ,process.env.ip || 8080, () => console.log("all is ok"))
