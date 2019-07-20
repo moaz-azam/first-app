@@ -1,16 +1,28 @@
 <% include partials/header%>
 
-<h1>this is campgrounds pages</h1>
-<a href="/campgrounds/new">add new campground</a>
+<div class="container">
+  <header>
+   <div class="container">
+    <h1>Welcome to campground pages</h1>
+    <p>see the beauy of pakistan</p>
+    <p>
+     <a class="btn-btn-primary btn-large" href="/campgrounds/new">add new campground</a>
+    </p>
+   </div>
+  </header>
 
-<% campgrounds.forEach(function(campground){ %>
- <div>
-  <h4><%= campground.name %></h4>
-  <img src="<%= campground.image %>">
-
- </div>
 
 
-<% }); %>
+  <% campgrounds.forEach(function(campground){ %>
+   <div>
+    <h4><%= campground.name %></h4>
+    <img src="<%= campground.image %>">
+
+   </div>
+
+</div>
+
+
+  <% }); %>
 
 <% include partials/footer%>
