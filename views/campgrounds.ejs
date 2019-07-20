@@ -11,19 +11,18 @@
    </div>
   </header>
 
-
- <div class="row text-center " style="display:flex; flex-wrap: warp;">
-  <% campgrounds.forEach(function(campground){ %>
-      <div class="col-md-3 col-sm-6">
-          <div class="thumbnail">
-             <img src="<%= campground.image %>">
-               <div class="caption">
-                <h4><%= campground.name %></h4>
-               </div>
-          </div>
-      </div>
-  <% }); %>
- </div>
+  <div class="row text-center " style="display:flex; flex-wrap: wrapp;">
+   <% campgrounds.forEach(function(campground){ %>
+       <div class="col-md-3 col-sm-6">
+           <div class="thumbnail">
+              <img src="<%= campground.image %>">
+                <div class="caption">
+                 <h4><%= campground.name %></h4>
+                </div>
+           </div>
+       </div>
+   <% }); %>
+  </div>
 
 </div>
 
