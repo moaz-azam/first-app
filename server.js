@@ -19,14 +19,12 @@ app.get("/", function(req , res){
 });
 
 app.get("/campgrounds", function(req , res){
-
-
- res.render("campgrounds",{campgrounds:campgrounds});
+ res.render("campgrounds", {campgrounds:campgrounds});
 });
 
 app.post("/campgrounds", function(req, res){
  var name = req.body.name;
- var image = req .body.image;
+ var image = req.body.image;
  var newcampground = {name: name, image: image}
  campgrounds.push(newcampground);
  res.redirect("/campgrounds");
