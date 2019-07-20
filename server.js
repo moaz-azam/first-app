@@ -1,5 +1,8 @@
 var express = require('express');
 var app = express();
+var bodyparser = require('body-parser');
+
+app.use(bodyparser.urlencoded({extended: true}));
 
 //app.use(express.static("public"));
 app.set('view engine', 'ejs');
@@ -17,6 +20,11 @@ app.get("/campgrounds", function(req , res){
    {name: "swat", image: "https://pixabay.com/get/54e8d7464b5bab14f6da8c7dda793f7f1636dfe2564c704c732c7fdd9048c45d_340.jpg"},
  ];
  res.render("campgrounds",{campgrounds:campgrounds});
+});
+
+app.post("/campgrounds", function(req, res){
+
+
 });
 
 app.listen(process.env.PORT ,process.env.IP || 8080, () => console.log("yelpcamp server has sarted"));
