@@ -23,10 +23,10 @@ app.get("/campgrounds", function(req , res){
 });
 
 app.post("/campgrounds", function(req, res){
-
+ res.send("cjjcjdncdjcdjn")
 });
 
-app.get("campgrounds/new", function(req, res){
+app.get("/campgrounds/new", function(req, res){
  app.render("new.ejs")
 });
 
