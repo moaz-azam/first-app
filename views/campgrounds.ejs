@@ -10,16 +10,17 @@
     </p>
    </div>
   </header>
-
-  <div class="row text-center" style ="display:flex; flex-wrap; warp;" >
-    <% campgrounds.forEach(function(campground){ %>
+    <div class="row text-cente" style ="display:flex; flex-wrap; warp;" >
+       <% campgrounds.forEach(function(campground){ %>
         <div class="col-md-3 col-sm-6">
-              <img src="<%= campground.image %> class="img-thumbnail" alt="campground" width="304" height="236" ">
-                  <div class="caption">
-                   <h4><%= campground.name %></h4>
-                  </div>
-    <% }); %>
-  </div>
-
- </div>
+          <div class="thumbnail">
+            <img src="<%= campground.image %>" >
+            <div class="caption">
+             <h4><%= campground.name %></h4>
+            </div>
+          </div>
+        </div>
+       <% }); %>
+    </div>
+</div>
 <% include partials/footer%>
