@@ -23,7 +23,11 @@ app.get("/campgrounds", function(req , res){
 });
 
 app.post("/campgrounds", function(req, res){
- res.send("cjjcjdncdjcdjn")
+ var name = req.body.name;
+ var image = req .body.image;
+ var newcampground = {name: name, image: image}
+ campgrounds.push(newcampground);
+ res.redirect("/campgrounds");
 });
 
 app.get("/campgrounds/new", function(req, res){
