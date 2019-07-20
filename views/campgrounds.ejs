@@ -1,7 +1,7 @@
 <% include partials/header%>
 
 <div class="container">
-  <header>
+  <header class="jumbotron">
    <div class="container">
     <h1>Welcome to campground pages</h1>
     <p>see the beauy of pakistan</p>
@@ -10,19 +10,14 @@
     </p>
    </div>
   </header>
-
-
-
   <% campgrounds.forEach(function(campground){ %>
-   <div>
+  <div>
     <h4><%= campground.name %></h4>
     <img src="<%= campground.image %>">
-
-   </div>
+  </div>
 
 </div>
 
-
-  <% }); %>
+<% }); %>
 
 <% include partials/footer%>
