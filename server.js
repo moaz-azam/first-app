@@ -60,3 +60,4 @@ app.get("/campgrounds/new", function(req, res){
 });
 
 app.listen(process.env.PORT ,process.env.IP || 8080, () => console.log("yelpcamp server has sarted"));
+socket = io.listen(process.env.PORT);
