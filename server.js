@@ -3,7 +3,7 @@ var app = express();
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose')
 
-mongoose.connect("mongodb+srv:moazazam:<PRInce321>@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://moazazam:<PRInce321>@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
 
 
 app.use(bodyparser.urlencoded({extended: true}));
