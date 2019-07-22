@@ -62,4 +62,4 @@ app.get("/campgrounds/new", function(req, res){
  res.render("new.ejs");
 });
 
-app.listen(process.env.IP || 8080, () => console.log("yelpcamp server has sarted"));
+app.listen(process.env.PORT, process.env.IP || 8080, () => console.log("yelpcamp server has sarted"));
