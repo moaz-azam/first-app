@@ -3,6 +3,7 @@ var app = express();
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose')
 
+mongoose.connect(process.env.DATABASEURL);
 mongoose.connect("mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
 
 
