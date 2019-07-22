@@ -51,7 +51,9 @@ app.post("/campgrounds", function(req, res){
  var name = req.body.name;
  var image = req.body.image;
  var newcampground = {name: name, image: image}
- campgrounds.push(newcampground);
+campground.create(newcampground, function(err, ){
+
+});
  res.redirect("/campgrounds");
 });
 
@@ -59,5 +61,4 @@ app.get("/campgrounds/new", function(req, res){
  res.render("new.ejs");
 });
 
-//
 app.listen(process.env.IP || 8080, () => console.log("yelpcamp server has sarted"));
