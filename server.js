@@ -53,14 +53,17 @@ app.post("/campgrounds", function(req, res){
  var name = req.body.name;
  var image = req.body.image;
  var newcampground = {name: name, image: image}
-campground.create(newcampground, function(err, ){
-
+campground.create(newcampground, function(err,newlycretead){
+if (err){
+ console.log(err);
+}else {
+  res.redirect("/campgrounds");
+}
 });
- res.redirect("/campgrounds");
 });
 
 app.get("/campgrounds/new", function(req, res){
  res.render("new.ejs");
 });
 
-app.listen(process.env.PORT, process.env.IP || 8080, () => console.log("yelpcamp server has sarted"));
+app.listen(process.env.PORT, process.env.PORT || 8080, () => console.log("yelpcamp server has sarted"));
