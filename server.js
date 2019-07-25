@@ -1,9 +1,17 @@
 var express = require('express');
 var app = express();
 var bodyparser = require('body-parser');
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
+//const config = require('config');
 
-mongoose.connect(process.env.DATABASEURL);
+
+const config = require('config');
+//...
+
+if (config.has('optionalFeature.detail')) {
+  const detail = config.get('optionalFeature.detail');
+  //...
+}
 mongoose.connect("mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
 
 
