@@ -23,25 +23,10 @@ app.set('view engine', 'ejs');
 var campgroundSchema = new mongoose.Schema({
  name: "string",
  image: "string",
+ description: "string",
 });
 
 var campground = mongoose.model("campground",campgroundSchema);
-campground.create(
- {
-  name: "hunza",
-  image: "https://pixabay.com/get/57e1d3404e53a514f6da8c7dda793f7f1636dfe2564c704c732c7dd4914fcd5e_340.jpg"
- }, function(err,campground){
-  if(err){
-  console.log(err);
- }else{
-  console.log("newly create campground");
-  console.log(campground);
- }
-});
-
-var campgrounds = [
-
-];
 
 app.get("/", function(req , res){
   res.render("home");
@@ -60,18 +45,31 @@ app.get("/campgrounds", function(req , res){
 app.post("/campgrounds", function(req, res){
  var name = req.body.name;
  var image = req.body.image;
- var newcampground = {name: name, image: image}
-campground.create(newcampground, function(err,newlycretead){
-if (err){
- console.log(err);
-}else {
-  res.redirect("/campgrounds");
-}
-});
+ var description =  req.body.description;
+ var newcampground = {name: name, image: image, description:description, }
+    campground.create(newcampground, function(err,newlycretead){
+        if (err){
+         console.log(err);
+        }else {
+          res.redirect("/campgrounds");
+        }
+    });
 });
 
 app.get("/campgrounds/new", function(req, res){
  res.render("new.ejs");
 });
 
-app.listen(process.env.PORT, process.env.PORT || 8080, () => console.log("yelpcamp server has sarted"));
+app.get("/campgrounds/:id", function(req, res){
+  campground.findById(req.params.id, function(err, foundcampgroud){
+    if (err){
+     console.log(err);
+    }else
+    res.render("show", {campground: foundcampgroud});
+  });
+
+
+
+});
+
+app.listen( 8080);
