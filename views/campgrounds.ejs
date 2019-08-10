@@ -5,7 +5,7 @@
    <div class="container">
     <h1>Welcome to campground pages</h1>
     <p>see the beauy of pakistan</p>
-     <p>
+    <p>
      <a class="btn btn-primary btn-large" href="/campgrounds/new">Add new campground</a>
     </p>
    </div>
@@ -15,12 +15,12 @@
         <div class="col-md-3 col-sm-6">
           <div class="thumbnail">
              <img src="<%= campground.image %>">
-                 <div class="caption">
-                     <h4><%= campground.name %></h4>
-                 </div>
-                 <p>
-                    <a href="/campgrounds/<%=campground._id%>" class="btn btn-primary">More info</a>
-                 </p>
+             <div class="caption">
+              <h4><%= campground.name %></h4>
+             </div>
+             <p>
+                <a href="/campgrounds/<%=  campground._id  %>" class="btn btn-primary">More info</a>
+             </p>
           </div>
         </div>
        <% }); %>
