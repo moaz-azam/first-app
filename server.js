@@ -12,7 +12,7 @@ if (config.has('optionalFeature.detail')) {
   const detail = config.get('optionalFeature.detail');
   //...
 }
-mongoose.connect("mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
 
 
 app.use(bodyparser.urlencoded({extended: true}));
@@ -60,13 +60,13 @@ app.get("/campgrounds/new", function(req, res){
  res.render("new.ejs");
 });
 
-// app.get("/campgrounds/:id", function(req, res){
-//   campground.findById(req.params.id, function(err, foundcampgroud){
-//     if (err){
-//      console.log(err);
-//     }else
-//     res.render("show", {campground: foundcampgroud});
-// });
-// });
+app.get("/campgrounds/:id", function(req, res){
+  campground.findById(req.params.id, function(err, foundcampgroud){
+    if (err){
+     console.log(err);
+    }else
+    res.render("show", {campground: foundcampgroud});
+});
+});
 
 app.listen(process.env.PORT);
