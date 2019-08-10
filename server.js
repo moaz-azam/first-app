@@ -62,11 +62,11 @@ app.get("/campgrounds/new", function(req, res){
 
 app.get("/campgrounds/:id", function(req, res){
   campground.findById(req.params.id, function(err, foundcampgroud){
-    if (err){
-     console.log(err);
-    }else
-    res.render("show", {campground: foundcampgroud});
-});
+      if (err){
+        console.log(err);
+      }else
+         res.render("show", {campground: foundcampgroud});
+   });
 });
 
 app.listen(process.env.PORT);
