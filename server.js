@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
+var campground = require("./models/campground");
 //const config = require('config');
 
 
@@ -12,21 +13,9 @@ if (config.has('optionalFeature.detail')) {
   const detail = config.get('optionalFeature.detail');
   //...
 }
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority")
-
-
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority");
 app.use(bodyparser.urlencoded({extended: true}));
-
-//app.use(express.static("public"));
 app.set('view engine', 'ejs');
-
-var campgroundSchema = new mongoose.Schema({
- name: "string",
- image: "string",
- description: "string",
-});
-
-var campground = mongoose.model("campground",campgroundSchema);
 
 app.get("/", function(req , res){
   res.render("home");
