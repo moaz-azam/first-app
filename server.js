@@ -3,8 +3,10 @@ var app = express();
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 var campground = require("./models/campground");
-//const config = require('config');
+var seedDB = require('./seeds');
 
+
+seedDB();
 
 const config = require('config');
 //...
