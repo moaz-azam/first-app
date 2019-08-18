@@ -31,16 +31,16 @@ function seedDB(){
                 campground.create(seed, function(err,  campground){
                     if (err){
                         console.log("err");
-                    }else {
+                    } else {
                         console.log("added campground");
                         comment.create(
                             {
                                 text: "kvdvdvkkvjdvkjbvjavkvkvjhbkdvkavkakjvjkvshvhvhabvkxiweufweii",
                                 author: "baby",
-                            },function(err, comment){
+                            }, function(err, comment){
                                 if (err){
                                     console.log("err");
-                                }else {
+                                } else {
                                     campground.comments.push(comment);
                                     campground.save();
                                 }

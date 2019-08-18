@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+
 var campgroundSchema = new mongoose.Schema({
  name: "string",
  image: "string",
@@ -6,7 +7,7 @@ var campgroundSchema = new mongoose.Schema({
  comments: [
      {
          type: mongoose.Schema.Types.ObjectId,
-         ref: "comment",
+         ref:  "comment",
      }
  ]
 });

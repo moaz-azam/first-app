@@ -5,9 +5,6 @@ var mongoose = require('mongoose');
 var campground = require("./models/campground");
 var seedDB = require('./seeds');
 
-
-seedDB();
-
 const config = require('config');
 //...
 
@@ -18,6 +15,7 @@ if (config.has('optionalFeature.detail')) {
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://azamudin:moazazQW@cluster0-kmqrk.mongodb.net/test?retryWrites=true&w=majority");
 app.use(bodyparser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
+seedDB();
 
 app.get("/", function(req , res){
   res.render("home");
@@ -52,7 +50,7 @@ app.get("/campgrounds/new", function(req, res){
 });
 
 app.get("/campgrounds/:id", function(req, res){
-  campground.findById(req.params.id).populate('comments').exec(function(err, foundcampgroud){
+  campground.findById(req.params.id).populate("comments").exec(function(err, foundcampgroud){
       if (err){
         console.log(err);
       }else
