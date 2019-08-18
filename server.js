@@ -52,7 +52,7 @@ app.get("/campgrounds/new", function(req, res){
 });
 
 app.get("/campgrounds/:id", function(req, res){
-  campground.findById(req.params.id, function(err, foundcampgroud){
+  campground.findById(req.params.id).populate('comments').exec(function(err, foundcampgroud){
       if (err){
         console.log(err);
       }else
