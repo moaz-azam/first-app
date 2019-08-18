@@ -6,17 +6,17 @@ var data = [
     {
         name: "hunza",
         image: "https://images.unsplash.com/photo-1564435150-149bb1667a60?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-        description: "jkcdvsjvsjkzscjcjksckjskkskjsk"
+        description: "beautiful site seeing",
     },
     {
         name: "karachi",
         image: "https://images.unsplash.com/photo-1564425230164-1e63b4922d3f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-        description: "jkcdvsjvsjkzscjcjksckjskkskjsk"
+        description: "beautiful site seeing",
     },
     {
         name: "hunza",
         image: "https://images.unsplash.com/photo-1564574662330-73fb2940ff5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-        description: "jkcdvsjvsjkzscjcjksckjskkskjsk"
+        description: "beautiful site seeing",
     },
 ]
 
@@ -28,26 +28,26 @@ function seedDB(){
             console.log("remove campground?");
         }
         data.forEach(function(seed){
-                campground.create(seed, function(err,  campground){
-                    if (err){
-                        console.log("err");
-                    } else {
-                        console.log("added campground");
-                        comment.create(
-                            {
-                                text: "kvdvdvkkvjdvkjbvjavkvkvjhbkdvkavkakjvjkvshvhvhabvkxiweufweii",
-                                author: "baby",
-                            }, function(err, comment){
-                                if (err){
-                                    console.log("err");
-                                } else {
-                                    campground.comments.push(comment);
-                                    campground.save();
-                                    console.log("comment added");
+            campground.create(seed, function(err,  campground){
+                if (err){
+                    console.log("err");
+                } else {
+                    console.log("added campground");
+                    comment.create(
+                        {
+                            text: "must visit places",
+                            author: "baby",
+                        }, function(err, comment){
+                            if (err){
+                                console.log("err");
+                            } else {
+                                campground.comments.push(comment);
+                                campground.save();
+                                console.log("comment added");
                                 }
-                            });
-                    }
-                });
+                        });
+                }
+            });
         });
     });
 }
