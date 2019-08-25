@@ -1,12 +1,11 @@
 <% include ../partials/header %>
 
 <div class="container">
-  <h1>Add new commen<%= campground.name %></h1>
+  <h1>Add new comment to <%= campground.name %></h1>
   <div style="width": 30%;>
    <form action="/campgrounds<%= campground._id %>/comments" method="POST">
-    <input class="form-control" type="text" name="name" placeholder="name">
-    <input class="form-control" type="text" name="image" placeholder="image url">
-    <input class="form-control" type="text" name="description" placeholder="description">
+    <input class="form-control" type="text" name="comment[name]" placeholder="comment">
+    <input class="form-control" type="text" name="comment[author]" placeholder="Author">
     <button class="btn btn-lg btn-default">submit!</button>
    </form>
   </div>

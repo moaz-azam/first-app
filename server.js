@@ -3,6 +3,7 @@ var app = express();
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 var campground = require("./models/campground");
+var comment = require("./models/comments");
 var seedDB = require('./seeds');
 
 const config = require('config');
@@ -68,5 +69,23 @@ app.get("/campgrounds/:id/comments/new", function(req, res){
   });
 }),
 
+app.post("/campgrounds/:id/comments", function(req, res){
+  campground.findById(req.params.id, function(err, campground){
+    if (err) {
+      console.log("err");
+    }else{
+      Comment.crate(req.body.Comment, function(err, comment){
+        if (err) {
+          console.log("err");
+          
+        } else {
+         campground.comments.push(comment);
+         campground.save();
+         res.redirect("/campgrounds/" + campground._id);
+        }
+      });
+    }
+  });
+});
 
 app.listen(process.env.PORT || 3000);
