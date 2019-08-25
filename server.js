@@ -74,10 +74,9 @@ app.post("/campgrounds/:id/comments", function(req, res){
     if (err) {
       console.log("err");
     }else{
-      Comment.crate(req.body.Comment, function(err, comment){
+      Comment.create(req.body.Comment, function(err, comment){
         if (err) {
           console.log("err");
-          
         } else {
          campground.comments.push(comment);
          campground.save();
